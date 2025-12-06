@@ -4,6 +4,43 @@ Este projeto é um serviço web construído com Flask que atua como backend para
 
 Por padrão o servidor roda em `0.0.0.0:5000`. Para desenvolvimento com auto-reload, execute com `debug=True` ou use o Flask CLI em modo de desenvolvimento.
 
+## Instruções
+
+1. **Clonar repositório:**
+
+   ```
+   git clone https://github.com/akpizutti/descarte-integrador-server
+   cd descarte-integrador-server
+   ```
+
+2. **Criar ambiente virtual:**
+
+   ```
+   python -m venv venv
+   ```
+
+3. **Ativar ambiente virtual:**
+
+   - On Windows:
+     ```
+     venv\Scripts\activate
+     ```
+   - On macOS/Linux:
+     ```
+     source venv/bin/activate
+     ```
+
+4. **Instalar dependências:**
+
+   ```
+   pip install -r requirements.txt
+   ```
+
+5. **Executar:**
+   ```
+   python run.py
+   ```
+
 ## Endpoints da API
 
 - **GET /api/v1/version**
