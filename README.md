@@ -1,77 +1,62 @@
-# Waste Collection API
+# API Descarte Integrador
 
-This project is a Flask-based web service that provides up-to-date information about waste collection locations. It serves as a backend for a mobile application, allowing users to find nearby waste collection points.
+Este projeto é um serviço web construído com Flask que atua como backend para um aplicativo móvel de descarte consciente de resíduos. Ele fornece informações atualizadas sobre pontos de coleta para que o app possa sincronizar a base de dados local.
 
-## Project Structure
+## Instruções
 
-```
-waste-collection-api
-├── app
-│   ├── __init__.py
-│   ├── models
-│   │   ├── __init__.py
-│   │   └── collection_point.py
-│   ├── routes
-│   │   ├── __init__.py
-│   │   └── api.py
-│   ├── services
-│   │   ├── __init__.py
-│   │   └── collection_service.py
-│   └── utils
-│       ├── __init__.py
-│       └── database.py
-├── config
-│   ├── __init__.py
-│   └── config.py
-├── tests
-│   ├── __init__.py
-│   └── test_api.py
-├── requirements.txt
-├── run.py
-└── README.md
-```
+1. **Clonar o repositório:**
 
-## Setup Instructions
-
-1. **Clone the repository:**
-   ```
+   ```bash
    git clone <repository-url>
    cd waste-collection-api
    ```
 
-2. **Create a virtual environment:**
-   ```
+2. **Criar um ambiente virtual:**
+
+   ```bash
    python -m venv venv
    ```
 
-3. **Activate the virtual environment:**
-   - On Windows:
+3. **Ativar o ambiente virtual:**
+
+   - No Windows (PowerShell):
+     ```powershell
+     venv\Scripts\Activate.ps1
      ```
-     venv\Scripts\activate
+   - No Windows (cmd):
+     ```cmd
+     venv\Scripts\activate.bat
      ```
-   - On macOS/Linux:
-     ```
+   - No macOS/Linux:
+     ```bash
      source venv/bin/activate
      ```
 
-4. **Install the required dependencies:**
-   ```
+4. **Instalar dependências:**
+
+   ```bash
    pip install -r requirements.txt
    ```
 
-5. **Run the application:**
-   ```
+5. **Executar a aplicação:**
+
+   ```bash
    python run.py
    ```
 
-## API Endpoints
+   Por padrão o servidor roda em `0.0.0.0:5000`. Para desenvolvimento com auto-reload, execute com `debug=True` ou use o Flask CLI em modo de desenvolvimento.
+
+## Endpoints da API
 
 - **GET /api/v1/version**
-  - Returns the current version of the API.
+
+  - Retorna a versão atual da base de dados (um inteiro/timestamp) que o servidor fornece para os clientes verificarem se precisam atualizar os dados locais.
 
 - **GET /api/v1/locations**
-  - Returns a list of waste collection locations.
 
-## License
+  - Retorna a lista completa de locais de coleta de resíduos (array de objetos). Cada objeto possui os campos: `id`, `nome`, `endereco`, `lat`, `lng` e `tipo`.
 
-This project is licensed under the MIT License. See the LICENSE file for details.
+## Observações
+
+- O arquivo `locations_data.json` contém a base de dados e deve estar em `app/utils/locations_data.json` por padrão. Se o arquivo não for encontrado ao iniciar o servidor, o serviço exibirá um aviso e carregará uma base vazia.
+- Em ambiente de desenvolvimento, ative o auto-reload para ver mudanças no código sem reiniciar manualmente. Alterações no arquivo JSON exigem reinício do servidor, pois o arquivo é carregado na inicialização.
