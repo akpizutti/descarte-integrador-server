@@ -49,7 +49,7 @@ Por padrão o servidor roda em `0.0.0.0:5000`. Para desenvolvimento com auto-rel
 
 - **GET /api/v1/locations**
 
-  - Retorna a lista completa de locais de coleta de resíduos (array de objetos). Cada objeto possui os campos: `id`, `nome`, `endereco`, `lat`, `lng`, `tipo`, `telefone` e `email`.
+  - Retorna a lista completa de locais de coleta de resíduos, no formato de uma array de objetos JSON. Cada objeto possui os campos: `id`, `nome`, `endereco`, `lat`, `lng`, `tipo`, `telefone` e `email`.
 
 ## Observações
 
